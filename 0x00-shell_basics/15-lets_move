@@ -1,2 +1,2 @@
 #!/bin/bash
-mv src/*[65-90]* /tmp/u
+mv src/*[[65-90]]* /tmp/u

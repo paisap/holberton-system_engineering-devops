@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+# This script is displaying "Holberton School" 10 times
+var=0
+var1=1
+while [ $var -le 12 ]; do
+    var1=1
+    echo "Hour: $var"
+    while [ $var1 -le 59 ]; do
+        echo "$var1"
+        var1=$(( var1 + 1 ))
+    done
+    var=$(( var + 1 ))
+done

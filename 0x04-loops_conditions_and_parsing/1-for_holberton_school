@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+# This script is displaying "Holberton School" 10 times
+var='Holberton School'
+for _ in {1..10}
+do
+    echo "$var"
+done

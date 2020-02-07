@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+# This script is displaying "Holberton School" 10 times
+var=1
+while [ $var -le 11 ]; do
+    if (( var == 10 )); then
+        echo "Hi"
+    else
+        echo "Holberton School"
+    fi
+    var=$(( var + 1 ))
+done

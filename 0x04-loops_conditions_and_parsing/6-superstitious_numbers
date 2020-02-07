@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+# This script is displaying "Holberton School" 10 times
+var=1
+while [ $var -le 20 ]; do
+    case $var in
+        4)
+            echo "$var"
+            echo "bad luck from China"
+        ;;
+        9)
+            echo "$var"
+            echo "bad luck from Japan"
+        ;;
+        17)
+            echo "$var"
+            echo "bad luck from Italy"
+        ;;
+        *)
+             echo "$var"
+        ;;
+    esac
+    var=$(( var + 1 ))
+done

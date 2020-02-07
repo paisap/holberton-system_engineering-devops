@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+# This script is displaying "Holberton School" 10 times
+var=1
+until [ $var -gt 10 ]
+do
+    echo "Holberton School"
+    var=$(( var + 1 ))
+done

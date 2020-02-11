@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+# Displays a string indefinitely and handles a SIGTERM signal
+i=0
+while [ $i -eq 0 ]; do
+    trap 'echo "I am invincible!!!"' SIGTERM
+    echo "To infinity and beyond"
+    sleep 2
+done

@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+# Creates a file that contains its PID and handles various signals
+file="/var/run/holbertonscript.pid"
+sudo touch $file
+echo $$ > $file
+i=1
+while [ $i -eq 1 ]; do
+    trap 'echo "I hate the kill command"; sudo rm $NAME' SIGTERM
+    trap 'echo "Y U no love me?!"' SIGINT
+    trap 'sudo rm $NAME' SIGQUIT
+    echo "To infinity and beyond"
+    sleep 2
+done

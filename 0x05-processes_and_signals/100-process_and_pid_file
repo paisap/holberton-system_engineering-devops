@@ -5,9 +5,9 @@ sudo touch $file
 echo $$ > $file
 i=1
 while [ $i -eq 1 ]; do
-    trap 'echo "I hate the kill command"; sudo rm $NAME' SIGTERM
+    trap 'echo "I hate the kill command"; sudo rm $file' SIGTERM
     trap 'echo "Y U no love me?!"' SIGINT
-    trap 'sudo rm $NAME' SIGQUIT
+    trap 'sudo rm $file' SIGQUIT
     echo "To infinity and beyond"
     sleep 2
 done

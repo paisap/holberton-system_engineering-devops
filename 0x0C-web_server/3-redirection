@@ -1,5 +1,4 @@
 #!/usr/bin/env bash
 # Redirection
-rule="rewrite ^/redirect_me/$ http://santiagoaldana.tech/ permanent;"
-sed -i '19 i\$rule' /etc/nginx/sites-enabled/default
+sudo sed -i '19 i\ \trewrite ^/redirect_me/$ http://santiagoaldana.tech/ permanent;' /etc/nginx/sites-enabled/default
 sudo service nginx restart

@@ -1,4 +1,7 @@
 #!/usr/bin/env bash
 # Redirection
+sudo apt -y update
+sudo apt -y install nginx
+echo "Holberton School" >> /var/www/html/index.html
 sudo sed -i '19 i\ \trewrite ^/redirect_me/$ http://santiagoaldana.tech/ permanent;' /etc/nginx/sites-enabled/default
 sudo service nginx restart

@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+# Redirection
+sudo apt -y update
+sudo apt -y install nginx
+echo "Holberton School" >> /var/www/html/index.html
+sudo sed -i '19 i\ \trewrite ^/redirect_me/$ http://santiagoaldana.tech/ permanent;' /etc/nginx/sites-enabled/default
+echo "Ceci n'est pas une page" >> /usr/share/nginx/html/custom_404.html
+error_404="\\\terror_page 404 /custom_404.html;\n\tlocation = /custom_404.html {\n\t\troot /usr/share/nginx/html;\n\t\tinternal;\n\t}"
+sudo sed -i "43i $custom_404" /etc/nginx/sites-enabled/default
+sudo service nginx restart

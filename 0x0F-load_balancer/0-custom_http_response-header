@@ -2,5 +2,5 @@
 # Double the number of webservers
 sudo apt -y update
 sudo apt -y install nginx
-sudo sed -i '60 i\ \tadd_header X-Served-By $HOSTNAME;' /etc/nginx/nginx.conf
+sudo sed -i "60 i\ \tadd_header X-Served-By $HOSTNAME;" /etc/nginx/nginx.conf
 sudo service nginx restart

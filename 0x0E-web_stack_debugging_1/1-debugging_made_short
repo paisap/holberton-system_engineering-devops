@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+# advanced
+cat /etc/nginx/sites-available/default > /etc/nginx/sites-enabled/default
+service nginx restart
+pkill -o nginx

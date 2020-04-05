@@ -2,4 +2,4 @@
 # chages de nging configutration
 curl 0:80
 cat /etc/nginx/sites-available/default > /etc/nginx/sites-enabled/default
-service nginx restar
+service nginx restart

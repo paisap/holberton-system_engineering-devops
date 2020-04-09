@@ -2,10 +2,10 @@
 # World wide web
 if (( $# == 2 ))
 then
-    dig "$2"."$1" | grep -A1 'ANSWER SECTION:' | awk 'f;/ANSWER SECTION:/{f=1}' | awk -v var="$2" -F' ' '{print "The subdomain " var " is a " $4 " record and points to " $5}'
+    dig "$2"."$1" | grep -A1 'ANSWER SECTION:' | awk 'f;/ANSWER SECTION:/{f=1}' | awk -v var="$2" '{print "The subdomain " var " is a " $4 " record and points to " $5}'
 else
-    dig "www"."$1" | grep -A1 'ANSWER SECTION:' | awk 'f;/ANSWER SECTION:/{f=1}' | awk -v var="www" -F' ' '{print "The subdomain " var " is a " $4 " record and points to " $5}'
-    dig "lb-01"."$1" | grep -A1 'ANSWER SECTION:' | awk 'f;/ANSWER SECTION:/{f=1}' | awk -v var="lb-01" -F' ' '{print "The subdomain " var " is a " $4 " record and points to " $5}'
-    dig "web-01"."$1" | grep -A1 'ANSWER SECTION:' | awk 'f;/ANSWER SECTION:/{f=1}' | awk -v var="web-01" -F' ' '{print "The subdomain " var " is a " $4 " record and points to " $5}'
-    dig "web-02"."$1" | grep -A1 'ANSWER SECTION:' | awk 'f;/ANSWER SECTION:/{f=1}' | awk -v var="web-02" -F' ' '{print "The subdomain " var " is a " $4 " record and points to " $5}'
+    dig "www"."$1" | grep -A1 'ANSWER SECTION:' | awk 'f;/ANSWER SECTION:/{f=1}' | awk -v var="www" '{print "The subdomain " var " is a " $4 " record and points to " $5}'
+    dig "lb-01"."$1" | grep -A1 'ANSWER SECTION:' | awk 'f;/ANSWER SECTION:/{f=1}' | awk -v var="lb-01" '{print "The subdomain " var " is a " $4 " record and points to " $5}'
+    dig "web-01"."$1" | grep -A1 'ANSWER SECTION:' | awk 'f;/ANSWER SECTION:/{f=1}' | awk -v var="web-01" '{print "The subdomain " var " is a " $4 " record and points to " $5}'
+    dig "web-02"."$1" | grep -A1 'ANSWER SECTION:' | awk 'f;/ANSWER SECTION:/{f=1}' | awk -v var="web-02" '{print "The subdomain " var " is a " $4 " record and points to " $5}'
 fi

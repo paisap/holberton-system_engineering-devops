@@ -1,24 +1,22 @@
 frontend www-http
         bind *:80
-        mode http
+        reqadd X-Forwarded-Proto:\ http
         default_backend nodes
-
 frontend www-https
-        bind *:443 ssl crt /etc/haproxy/certs/www.santiagoaldana.tech
+        bind *:443 ssl crt /etc/haproxy/certs/www.santiagoaldana.tech.pem
         reqadd X-Forwarded-Proto:\ https
         acl letsencrypt-acl path_beg /.well-known/acme-challenge/
         use_backend letsencrypt-backend if letsencrypt-acl
         default_backend nodes
-
 backend nodes
+        timeout connect         10s
+        timeout server          1m
         balance roundrobin
         redirect scheme https if !{ ssl_fc }
         server 1186-web-01 35.196.176.123:80 check
         server 1186-web-02 18.234.174.103:80 check
-
 backend letsencrypt-backend
         server letsencrypt 127.0.0.1:54321
-
 global
         log /dev/log    local0
         log /dev/log    local1 notice
@@ -31,8 +29,6 @@ global
 
         maxconn 2048
         tune.ssl.default-dh-param 2048
-        option forwardfor
-        option http-server-close
 
         # Default SSL material locations
         ca-base /etc/ssl/certs
@@ -59,3 +55,5 @@ defaults
         errorfile 502 /etc/haproxy/errors/502.http
         errorfile 503 /etc/haproxy/errors/503.http
         errorfile 504 /etc/haproxy/errors/504.http
+        option forwardfor
+        option http-server-close

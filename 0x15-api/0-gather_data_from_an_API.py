@@ -1,9 +1,9 @@
 #!/usr/bin/python3
 """ Gather data from an API """
-
 import requests
 import json
 import sys
+
 if __name__ == "__main__":
     link = "https://jsonplaceholder.typicode.com/users/" + sys.argv[1]
     link_2 = "https://jsonplaceholder.typicode.com/todos?userId=" + sys.argv[1]

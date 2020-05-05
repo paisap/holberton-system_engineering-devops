@@ -5,9 +5,10 @@ import requests
 import json
 import sys
 if __name__ == "__main__":
-    x = requests.get("https://jsonplaceholder.typicode.com/users/2").json()
-    y = requests.get(
-            "https://jsonplaceholder.typicode.com/todos?userId=2").json()
+    link = "https://jsonplaceholder.typicode.com/users/" + sys.argv[1]
+    link_2 = "https://jsonplaceholder.typicode.com/todos?userId=" + sys.argv[1]
+    x = requests.get(link).json()
+    y = requests.get(link_2).json()
     tasks = []
     count = 0
     for i in y:
